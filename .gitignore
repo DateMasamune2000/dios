@@ -1,0 +1,6 @@
+*.o
+bootcode.bin
+config.txt
+fixup.dat
+*.img
+*.elf
