@@ -8,11 +8,11 @@ It currently works well inside QEMU, but has not yet been tested on real hardwar
 
 ## Functions
 
-Currently, DiOS ships with a "virtual machine" for a basic Turning-complete
+DiOS ships with a "virtual machine" for a basic Turning-complete
 programming language. Operations can be performed by entering a command into
 the prompt (over UART).
 
-There are 256 bytes currently available to the machine to store data. This is
+There are 256 bytes available to the machine to store data. This is
 for JUST the data: the program (or "command" in DiOS terminology) is stored
 separately.
 
@@ -33,7 +33,7 @@ The language is from the [P" family](`https://esolangs.org/wiki/P%E2%80%B2%E2%80
 
 ### The Tape
 
-The Tape is a memory array. It is currently 256 "cells" long, each "cell" being a byte (though these limits may change soon).
+The Tape is a memory array. It is 256 "cells" long, each "cell" being a byte in size (though these limits may change soon).
 Values on the Tape cannot be randomly addressed, and are modified via the Pointer.
 
 ### The Pointer
@@ -55,6 +55,8 @@ Commands are composed of one or more of the following characters, each of which 
 |`]`|If current cell value is 0, move ahead to the next character. If not, jump back to the corresponding `[` to continue execution.|
 |`.`|Send ASCII character corresponding to the current cell value over UART|
 |`,`|Read a character over UART and store the corresponding ASCII character in the current cell|
+
+"current cell" in this context means the cell on the Tape currently pointed to by the Pointer.
 
 ## Build instructions
 
