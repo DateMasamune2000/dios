@@ -55,6 +55,8 @@ Commands are composed of one or more of the following characters, each of which 
 |`]`|If current cell value is 0, move ahead to the next character. If not, jump back to the corresponding `[` to continue execution.|
 |`.`|Send ASCII character corresponding to the current cell value over UART|
 |`,`|Read a character over UART and store the corresponding ASCII character in the current cell|
+|`p`|Print the value in the cell as a number|
+|`d`|Dump VM memory buffer|
 
 "current cell" in this context means the cell on the Tape currently pointed to by the Pointer.
 
