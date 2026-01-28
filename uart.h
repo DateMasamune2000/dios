@@ -3,6 +3,7 @@
 
 #include <stdint.h>
 
+
 extern uint32_t MMIO_BASE;
 
 inline void mmio_init()
@@ -72,5 +73,6 @@ void uart_putc(unsigned char c);
 unsigned char uart_getc();
 void uart_puts(const char *str);
 void uart_ngets(uint8_t n, char *buffer);
+void uart_printnum(uint8_t n);
 
 #endif

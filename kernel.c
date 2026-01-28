@@ -14,7 +14,7 @@ void kernel_main(uint32_t r0, uint32_t r1, uint32_t atags)
 	while (1) {
 		char buffer[256];
 
-		uart_putc('>');
+		uart_putc('$');
 
 		uart_ngets(255, buffer);
 
@@ -43,6 +43,31 @@ void kernel_main(uint32_t r0, uint32_t r1, uint32_t atags)
 				break;
 			case ',':
 				mem[j] = uart_getc();
+				i++;
+				break;
+			case '|':
+				for (uint8_t k = 0; k < 255; k++)
+					mem[k] = 0;
+				i++;
+				break;
+			case 'p':
+				/* thank me later */
+				uart_printnum(mem[j]);
+				uart_putc('\n');
+				i++;
+				break;
+			case 'd':
+				for (uint8_t k = 0; k < 0xff; k++) {
+					uart_printnum(mem[k]);
+					if (((k+1) & 0x0f) == 0x00) {
+						uart_putc('\n');
+					} else {
+						uart_putc(' ');
+					}
+				}
+
+				uart_printnum(mem[0xff]);
+				uart_putc('\n');
 				i++;
 				break;
 			case ']':

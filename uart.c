@@ -49,6 +49,28 @@ void uart_puts(const char *str)
 		uart_putc((unsigned char) str[i]);
 }
 
+void uart_printnum(uint8_t n)
+{
+	uint8_t pt1, pt2;
+
+	pt1 = (n & 0x0f);
+	pt2 = (n & 0xf0) >> 4;
+
+	if (pt1 > 9)
+		pt1 += ('A' - 10);
+	else
+		pt1 += '0';
+
+
+	if (pt2 > 9)
+		pt2 += ('A' - 10);
+	else
+		pt2 += '0';
+
+	uart_putc(pt2);
+	uart_putc(pt1);
+}
+
 void uart_ngets(uint8_t n, char *buffer)
 {
 	char c;
