@@ -81,12 +81,10 @@ void uart_ngets(uint8_t n, char *buffer)
 		if (c == '\r') {
 			uart_putc('\n');
 			break;
-		}
-
-		if (c == '\b') {
-			i--;
-			uart_putc('\b');
-			continue;
+		} else if (c == 3) {
+			buffer[0] = 0;
+			uart_puts("\ncancelled\n");
+			return;
 		}
 
 		buffer[i] = c;
