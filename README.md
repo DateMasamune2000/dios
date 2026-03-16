@@ -1,7 +1,5 @@
 # DiOS - A Raspberry Pi operating system
 
-*You expected an operating system but it was I, DIO!!!*
-
 DiOS is an operating system for the raspberry Pi. It currently has a working command shell.
 
 It currently works well inside QEMU, but has not yet been tested on real hardware.
