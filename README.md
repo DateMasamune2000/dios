@@ -72,7 +72,7 @@ Running `make` builds and runs the OS in QEMU. UART data is sent and received on
 
 ### Additional files
 
-The following Raspberry Pi files need to be sourced to be able to build the image:
+The following Raspberry Pi files need to be sourced to be able to build the image (although these are not necessary for testing on QEMU):
 - `bootcode.bin`
 - `fixup.dat`
 
